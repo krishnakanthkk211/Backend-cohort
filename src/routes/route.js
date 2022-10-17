@@ -2,6 +2,67 @@ const express = require('express');
 const abc = require('../introduction/intro')
 const router = express.Router();
 
+router.get('/movies', function (req, res) {
+    let movies=['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins']
+     console.log(movies)
+     res.send(movies)
+}); 
+
+// router.get('/movies/:indexNumber',function(req,res){
+//     let movies=['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins']
+//            let myparam=req.params
+//         let index=myparam.indexNumber
+//         res.send(movies[index])
+// });
+router.get('/movies/:indexNumber',function(req,res){
+    let movies=['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins']
+           let myparam=req.params
+        let index=myparam.indexNumber
+        if(index>movies.length){
+            res.send("please use a valid index")
+        }else{
+            res.send(movies[index])
+        }
+});
+
+router.get('/Films',function(req,res){
+    let Films=[ {
+        'id': 1,
+        'name': 'The Shining'
+       }, {
+        'id': 2,
+        'name': 'Incendies'
+       }, {
+        'id': 3,
+        'name': 'Rang de Basanti'
+       }, {
+        'id': 4,
+        'name': 'Finding Nemo'
+       }]
+       res.send(Films)
+});
+router.get('/Films/:filmid',function(req,res){
+    let Films=[ {
+        'id': 1,
+        'name': 'The Shining'
+       }, {
+        'id': 2,
+        'name': 'Incendies'
+       }, {
+        'id': 3,
+        'name': 'Rang de Basanti'
+       }, {
+        'id': 4,
+        'name': 'Finding Nemo'
+       }]
+       
+    id=req.params.filmid
+    if(id>Films.length){
+        res.send("No such that film exist")
+    }else{
+        res.send(Films[id])
+    }
+})
 router.get('/test-me', function (req, res) {
     console.log('My batch is', abc.name)
     abc.printName()
