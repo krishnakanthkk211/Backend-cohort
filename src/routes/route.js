@@ -11,7 +11,7 @@ const lodash = require("lodash")
 
 
 router.get('/test-me', function (req, res) {
-    console.log("I am Korvi Krishnakanth.", xyz.myapp())
+    console.log("I am Korvi Krishnakanth.and a part of functionUp lithium cohort.", xyz.myapp())
     console.log("is today's date:", abc.date())
     console.log("th month:", abc.month())
     console.log("Batch,week and day,topic:", abc.getbatch())
