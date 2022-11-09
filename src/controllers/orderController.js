@@ -39,8 +39,8 @@ const createNewOrder = async function (req, res) {
   if (!checkProductId) {
     return res.send({ msg: "invalid productId" });
   }
-  let isFreeUser = req.header["isfreeappuser"];
-  if (isFreeUser === "false") {
+  let isFreeAppUser = req.header["isfreeappuser"];
+  if (isFreeAppUser === "false") {
     let user = await newUser.findById(userId); // User Balance
     let userBalance = user["balance"];
     let product = await newProduct.findById(productId); // Product Price
@@ -59,7 +59,7 @@ const createNewOrder = async function (req, res) {
     } else {
       return res.send({ msg: "you dont have enough money" });
     }
-  } else if (isFreeUser === "true") {
+  } else if (isFreeAppUser === "true") {
     let today = moment().format("DD-MM-YYYY");
     Data["amount"] = 0;
     Data["isFreeAppUser"] = true;
