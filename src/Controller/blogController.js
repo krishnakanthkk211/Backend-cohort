@@ -127,7 +127,7 @@ const deleteBlog = async function (req, res) {
 
 //-------API to delete a Blog by any field--------
 
-const deleteByField = async function (req, res) {
+const querydelete = async function (req, req) {
 
     try {
         let data = req.query 
@@ -150,4 +150,4 @@ const deleteByField = async function (req, res) {
 }
 
 
-module.exports = { createBlog, getBlogs, updateBlog, deleteBlog, deleteByField }
+module.exports = { createBlog, getBlogs, updateBlog, deleteBlog, querydelete }
